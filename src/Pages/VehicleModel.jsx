@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { observer, inject } from "mobx-react";
 
 class VehicleModel extends Component {
     render() {
@@ -7,4 +8,4 @@ class VehicleModel extends Component {
     )}
   }
 
-export default VehicleModel;
+  export default inject(i => ({ vehicleModelStore: i.rootStore.vehicleModelStore }))(observer(VehicleModel));

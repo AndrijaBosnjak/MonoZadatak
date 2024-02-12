@@ -7,7 +7,7 @@ class HomePage extends Component {
       <>
       <h1>Home Page</h1>
       <Link to="vehiclemake"><button >VehicleMake</button></Link> 
-      <Link to="vehiclemake"><button >VehicleModel</button></Link>  
+      <Link to="vehiclemodel"><button >VehicleModel</button></Link>  
 </>  
     )}
   }
