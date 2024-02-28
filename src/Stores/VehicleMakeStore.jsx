@@ -1,22 +1,25 @@
 import { observable, action, makeObservable } from "mobx";
+import VehicleMakeForm from "../Components/MakeVehicleForm";
 
 class VehicleMakeStore {
-    vehicleMake = {
-        id:"",
-        name:"",
-        abrv:"",
-    }
+  vehicleMakes = [];
 
-    constructor() {
-        makeObservable(this, {
-            vehicleMake: observable,
-            setVehicleMake: action,
-        })
-        }
+  constructor() {
+    this.form = new VehicleMakeForm({
+      onSuccess: (form) => {
+        return this.vehicleMakes = form.values();
+      },
+      onError: (form) => {
+        alert(form.errors());
+      },
+    });
+  
+  makeObservable(this, {
+      vehicleMakes: observable,
 
-        setVehicleMake() {
+    });
 
-        }
-    }
+  }
+}
 
 export default VehicleMakeStore;
